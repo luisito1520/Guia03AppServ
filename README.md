@@ -109,35 +109,6 @@ flowchart TD
     H --> I[PATCH user_metadata]
     I --> J[Confirmacion en la aplicacion]
 ```
-
-## Entrega
-
-Usa [docs/INFORME.md](docs/INFORME.md) como base para el documento solicitado. Completa nombres, programa y fecha; agrega capturas propias del login, marca aplicada, formulario y guardado; y exporta el informe a PDF. Antes de publicar el repositorio, verifica que `.env` no se haya agregado a Git.
-
-Al crear el repositorio para la entrega, comparte el acceso con `jonathansanchez2948@correo.itm.edu.co`. No subas el archivo `.env`, secretos ni capturas que muestren credenciales o tokens.
-
-### Publicar en GitHub
-
-1. Crea un repositorio nuevo en GitHub. Si sera privado, agrega al docente como colaborador.
-2. En PowerShell, desde la carpeta del proyecto, confirma que `.gitignore` contiene una linea `.env`. Si no aparece, no publiques hasta corregirlo. Inicializa Git si aun no existe:
-
-   ```powershell
-   git init
-   git check-ignore .env
-   ```
-
-   El ultimo comando debe mostrar `.env` como ignorado. Luego ejecuta `git add .` y `git status`; revisa que `.env` y `node_modules` no aparezcan en los archivos a publicar.
-4. Crea el commit y conecta el remoto nuevo (cambia `TU_USUARIO` por tu cuenta):
-
-   ```powershell
-   git commit -m "Completa proyecto de perfil con Auth0"
-   git branch -M main
-   git remote add origin https://github.com/TU_USUARIO/itm-auth0-perfil.git
-   git push -u origin main
-   ```
-
-5. En el repositorio, abre **Settings > Collaborators**, agrega `jonathansanchez2948@correo.itm.edu.co` y envia la invitacion.
-
 ## Referencias
 
 - [Auth0 Express Quickstart](https://auth0.com/docs/quickstart/webapp/express)
