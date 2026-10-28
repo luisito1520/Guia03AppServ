@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173b68">
+  <title><%= title %> | Perfil ITM</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Inicio - Perfil ITM">
+      <span class="brand-mark">ITM</span>
+      <span>Portal de perfil</span>
+    </a>
+    <nav aria-label="Navegacion principal">
+      <% if (name) { %>
+        <span class="welcome">Hola, <%= name %></span>
+        <a class="nav-link" href="/logout">Cerrar sesion</a>
+      <% } %>
+    </nav>
+  </header>
+  <main class="page">

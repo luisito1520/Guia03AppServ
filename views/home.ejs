@@ -1,0 +1,25 @@
+<%- include('partials/header', { title: 'Inicio', name }) %>
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">INSTITUTO TECNOLOGICO METROPOLITANO</p>
+    <h1>Tu cuenta, tus datos.</h1>
+    <p class="lead">Inicia sesion de forma segura y administra tus datos personales guardados en Auth0.</p>
+    <% if (isAuthenticated) { %>
+      <a class="button" href="/profile">Editar mis datos <span aria-hidden="true">→</span></a>
+    <% } else { %>
+      <a class="button" href="/login">Ingresar con Auth0 <span aria-hidden="true">→</span></a>
+    <% } %>
+  </div>
+  <aside class="hero-card" aria-label="Resumen del proyecto">
+    <span class="card-icon" aria-hidden="true">✓</span>
+    <h2>Autenticacion protegida</h2>
+    <p>Auth0 gestiona el inicio de sesion. La aplicacion consulta y actualiza tu perfil por medio de su API de gestion.</p>
+    <div class="status-line"><span></span> Conexion local preparada</div>
+  </aside>
+</section>
+<section class="feature-row" aria-label="Funciones">
+  <article><span>01</span><h2>Inicia sesion</h2><p>Universal Login mantiene tus credenciales fuera de esta aplicacion.</p></article>
+  <article><span>02</span><h2>Actualiza tu perfil</h2><p>Revisa y modifica los datos personales asociados a tu cuenta.</p></article>
+  <article><span>03</span><h2>Guarda en Auth0</h2><p>Los cambios se almacenan en la seccion <code>user_metadata</code>.</p></article>
+</section>
+<%- include('partials/footer') %>

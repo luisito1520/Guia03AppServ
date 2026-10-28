@@ -1,0 +1,41 @@
+<%- include('partials/header', { title: 'Mis datos', name }) %>
+<section class="form-layout">
+  <div class="form-intro">
+    <p class="eyebrow">MI CUENTA</p>
+    <h1>Datos personales</h1>
+    <p>La informacion se carga desde tu perfil de Auth0. Los campos que aun no hayas guardado apareceran vacios.</p>
+    <div class="privacy-note"><span aria-hidden="true">i</span><p>Tus datos se envian desde el servidor a Auth0. El token de Management API nunca se expone en el navegador.</p></div>
+  </div>
+  <form class="profile-form" action="/profile" method="post">
+    <h2>Informacion del usuario</h2>
+    <p class="form-hint">Completa los cuatro campos para guardar tus cambios.</p>
+    <% if (saved) { %>
+      <div class="alert success" role="status">Tus datos se actualizaron correctamente en Auth0.</div>
+    <% } %>
+    <input type="hidden" name="csrf_token" value="<%= csrfToken %>">
+    <label for="document_type">Tipo de documento</label>
+    <select id="document_type" name="document_type" required aria-describedby="<%= errors.document_type ? 'document_type_error' : '' %>">
+      <option value="">Selecciona una opcion</option>
+      <% documentTypes.forEach((type) => { %>
+        <option value="<%= type.value %>" <%= values.document_type === type.value ? 'selected' : '' %>><%= type.label %></option>
+      <% }) %>
+    </select>
+    <% if (errors.document_type) { %><span class="field-error" id="document_type_error"><%= errors.document_type %></span><% } %>
+
+    <label for="document_number">Numero de documento</label>
+    <input id="document_number" name="document_number" type="text" value="<%= values.document_number %>" maxlength="30" autocomplete="off" required>
+    <% if (errors.document_number) { %><span class="field-error"><%= errors.document_number %></span><% } %>
+
+    <label for="address">Direccion</label>
+    <input id="address" name="address" type="text" value="<%= values.address %>" maxlength="200" autocomplete="street-address" required>
+    <% if (errors.address) { %><span class="field-error"><%= errors.address %></span><% } %>
+
+    <label for="phone">Telefono</label>
+    <input id="phone" name="phone" type="tel" value="<%= values.phone %>" maxlength="25" autocomplete="tel" required>
+    <% if (errors.phone) { %><span class="field-error"><%= errors.phone %></span><% } %>
+
+    <button class="button button-wide" type="submit">Guardar cambios <span aria-hidden="true">→</span></button>
+    <a class="back-link" href="/">Volver al inicio</a>
+  </form>
+</section>
+<%- include('partials/footer') %>

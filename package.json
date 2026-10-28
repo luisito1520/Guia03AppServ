@@ -1,0 +1,21 @@
+{
+  "name": "itm-auth0-perfil",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aplicacion local de autenticacion Auth0 y edicion de user_metadata",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-openid-connect": "^2.18.1"
+  }
+}
